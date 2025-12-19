@@ -33,6 +33,7 @@ const initialiseCanva = async (req, res, next) => {
       message: "canvas created successfully",
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
@@ -125,7 +126,7 @@ const addText = async (req, res) => {
     }
 
     const canvas = await Canvas.findById(id);
-  
+
     if (!canvas)
       return res
         .status(404)
